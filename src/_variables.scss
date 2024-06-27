@@ -1,0 +1,33 @@
+@use "sass:map";
+
+@font-face {
+    font-family: Outfit;
+    src: url('./assets/Outfit-VariableFont_wght.ttf');
+}
+
+$font: 'Outfit';
+
+$Soft-blue: hsl(215, 51%, 70%);
+$cyan: hsl(178, 100%, 50%);
+$main-BG: hsl(217, 54%, 11%);
+$card-BG: hsl(216, 50%, 16%);
+$line: hsl(215, 32%, 27%);
+$white: hsl(0, 0%, 100%);
+
+$breakpoints-map: (
+    mobile: 375px,
+    desktop: 1440px
+);
+
+@mixin respond-to($breakpoints...) {
+    @each $breakpoint in $breakpoints {
+        $size: map.get($breakpoints-map, $breakpoint);
+        @if $size {
+            @media (min-width: $size) {
+                @content;
+            }
+        } @else {
+            @warn "Unknown `#{$breakpoint}` breakpoint.";
+        }
+    }
+}

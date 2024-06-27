@@ -1,0 +1,27 @@
+<article>
+  <figure>
+    <div class="image-wrapper">
+      <img src="{{ nft.image }}" alt="{{ nft.name }}" />
+      <div class="icon-overlay">
+        <img src="https://res.cloudinary.com/dcbbqlssh/image/upload/v1719236688/icon-view_qlutym.svg" alt="Eye Icon" />
+      </div>
+    </div>
+    <figcaption>
+      <h2>{{ nft.name }}</h2>
+      <p class="description">{{ nft.description }}</p>
+      <div class="price-time">
+        <h3>{{ nft.price }}</h3>
+        <p class="time">{{ nft.time }}</p>
+      </div>
+    </figcaption>
+  </figure>
+  <hr />
+  <footer>
+    <div class="creator-info">
+      <img src="{{ creator.image }}" alt="{{ creator.name }}" />
+      <p>
+        Creation of <a href="{{ creator.link }}">{{ creator.name }}</a>
+      </p>
+    </div>
+  </footer>
+</article>

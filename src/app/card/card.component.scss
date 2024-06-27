@@ -1,0 +1,184 @@
+@import "../../_variables.scss";
+:host {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  article {
+    background-color: $card-BG;
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    box-sizing: border-box;
+
+    @include respond-to(mobile) {
+      height: 543px;
+      width: 327px;
+    }
+
+    @include respond-to(desktop) {
+      height: 589px;
+      width: 350px;
+    }
+
+    figure {
+      margin: unset;
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+      @include respond-to(mobile) {
+        overflow: unset;
+      }
+
+      .image-wrapper {
+        position: relative;
+        border-radius: 8px;
+
+        img {
+          display: block;
+          width: 100%;
+          border-radius: 8px;
+        }
+
+        &:hover::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 255, 255, 0.5);
+          border-radius: 8px;
+          cursor: pointer;
+        }
+
+        .icon-overlay {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          opacity: 0;
+          transition: opacity 0.3s ease;
+
+          img {
+            width: 50px;
+            height: 50px;
+          }
+        }
+
+        &:hover .icon-overlay {
+          opacity: 1;
+        }
+      }
+
+      figcaption {
+        h2 {
+          font-size: 1.375em;
+          color: $white;
+          &:hover {
+            color: $cyan;
+            cursor: pointer;
+          }
+        }
+        .description {
+          color: $Soft-blue;
+          font-size: 1.125em;
+        }
+        .price-time {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          h3 {
+            color: $cyan;
+            font-size: 1em;
+            font-weight: 700;
+            position: relative;
+            padding-left: 24px;
+
+            &:before {
+              content: "";
+              display: inline-block;
+              background-image: url("https://res.cloudinary.com/dcbbqlssh/image/upload/v1719236688/icon-ethereum_xspyfk.svg");
+              background-size: contain;
+              background-repeat: no-repeat;
+              width: 16px;
+              height: 16px;
+              position: absolute;
+              left: 0;
+              top: 50%;
+              transform: translateY(-50%);
+            }
+
+            @include respond-to(mobile) {
+              font-size: 0.9375em;
+              font-weight: 600;
+            }
+          }
+          .time {
+            font-size: 1em;
+            color: $Soft-blue;
+            position: relative;
+            padding-left: 24px;
+
+            &:before {
+              content: "";
+              display: inline-block;
+              background-image: url("https://res.cloudinary.com/dcbbqlssh/image/upload/v1719236688/icon-clock_fpty4l.svg");
+              background-size: contain;
+              background-repeat: no-repeat;
+              width: 16px;
+              height: 16px;
+              position: absolute;
+              left: 0;
+              top: 50%;
+              transform: translateY(-50%);
+            }
+
+            @include respond-to(mobile) {
+              font-size: 0.9375em;
+            }
+          }
+        }
+      }
+
+    }
+    hr {
+      border: none;
+      border-top: 1px solid $line;
+      margin: 10px 0;
+      width: 100%;
+      @include respond-to(mobile) {
+        margin: 4px 0;
+      }
+    }
+
+    footer {
+      .creator-info {
+        display: flex;
+        align-items: center;
+        img {
+          width: 33px;
+          height: 33px;
+          border-radius: 50%;
+        }
+        p {
+          margin-left: 10px;
+          color: $Soft-blue;
+          a {
+            text-decoration: none;
+            color: $white;
+            &:hover {
+              cursor: pointer;
+              color: $cyan;
+            }
+          }
+          @include respond-to(mobile) {
+            font-size: 0.9375em;
+          }
+        }
+      }
+    }
+  }
+}
